@@ -72,6 +72,10 @@ pipeline {
 
           }
 
+          failure {
+             echo "Something happened"
+          }
+
       }
 
 

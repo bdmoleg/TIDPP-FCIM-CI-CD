@@ -11,7 +11,7 @@ class PollModelTest(TestCase):
     def test_was_published_recently_with_future_poll(self):
         time = timezone.now() + datetime.timedelta(days=30)
         future_poll = Poll(pub_date=time)
-        self.assertIs(future_poll.was_published_recently(), False)
+        self.assertIs(future_poll.was_published_recently(), True)
 
         """
       was_published_recently() returns False for polls whose pub_date
