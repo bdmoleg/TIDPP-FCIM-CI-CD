@@ -5,8 +5,13 @@ pipeline {
 
     agent any
 
+     options {
+          buildDiscarder(logRotator(numToKeepStr: '2'))
+          timestamps()
+     }
 
     stages() {
+
 
         stage("Procesul de Build") {
         
@@ -22,6 +27,7 @@ pipeline {
             }
 
         }
+
 
         stage("Procesul de Testing") {
         
