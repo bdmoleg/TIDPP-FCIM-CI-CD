@@ -17,9 +17,7 @@ pipeline {
                     . ${BUILD_TAG}/bin/activate && \
                     ${BUILD_TAG}/bin/pip install --upgrade pip && \
                     ${BUILD_TAG}/bin/pip install -r requirements.txt && \
-                    ${BUILD_TAG}/bin/pip install faker \
-                    python manage.py makemigrations && python manage.py migrate && \
-                    python manage.py shell --command "import seeder;seeder.seed_all(10)" && deactivate'
+                    python manage.py makemigrations && python manage.py migrate && deactivate'
 
             }
 
