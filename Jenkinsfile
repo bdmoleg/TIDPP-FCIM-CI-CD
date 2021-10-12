@@ -59,7 +59,18 @@ pipeline {
 
     }
 
+      post {
+          always {
 
+               echo "${BUILD_TAG}"
+               echo "${params.PERSON}"
+               echo "${params.BIOGRAPHY}"
+               echo "${params.CHECKBOX}"
+               echo "${params.CHOICE}"
+               echo "${params.PASSWORD}"
+
+
+          }
 
 
 }
