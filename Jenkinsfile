@@ -26,7 +26,7 @@ pipeline {
         stage("Procesul de Testing") {
         
             steps {
-                sh '. ${BUILD_TAG}/bin/active .venv && python manage.py test && deactivate'
+                sh '. ${BUILD_TAG}/bin/activate && python manage.py test && deactivate'
             }
 
         }
