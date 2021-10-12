@@ -10,6 +10,18 @@ pipeline {
           timestamps()
      }
 
+     parameters {
+         string(name: 'PERSON', defaultValue: 'Mr Jenkins', description: 'Helpful description for Person param')
+
+         text(name: 'BIOGRAPHY', defaultValue: '', description: 'Enter some important info about the person biography')
+
+         booleanParam(name: 'CHECKBOX', defaultValue: true, description: 'Check me if you can')
+
+         choice(name: 'CHOICE', choices: ['First', 'Second', 'Third'], description: 'Pick something')
+
+         password(name: 'PASSWORD', defaultValue: 'VERYSECRET', description: 'Enter a password you already know')
+     }
+
     stages() {
 
 
