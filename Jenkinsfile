@@ -11,7 +11,7 @@ pipeline {
         stage("Procesul de Build") {
         
             steps {
-                echo "Build stage"
+                echo "Build number ${BUILD_NUMBER} and ${BUILD_TAG}"
             }
 
         }
