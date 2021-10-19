@@ -84,6 +84,8 @@ pipeline {
                    }
                }
 
+               junit '**/test-reports/unittest/*.xml'
+
           }
 
 
