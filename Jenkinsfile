@@ -23,7 +23,7 @@ pipeline {
      }
 
      environment {
-         DELETE_FOLDER_AFTER_STAGES = 'true'
+         DELETE_FOLDER_AFTER_STAGES = 'false'
          DB_ENGINE    = 'sqlite3'
      }
 
