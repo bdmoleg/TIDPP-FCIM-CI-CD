@@ -40,7 +40,6 @@ pipeline {
                     ${BUILD_TAG}/bin/pip install --upgrade pip && \
                     ${BUILD_TAG}/bin/pip install -r requirements.txt && \
                     python manage.py makemigrations && python manage.py migrate && deactivate'
-                 bat 'ls'
             }
 
 
