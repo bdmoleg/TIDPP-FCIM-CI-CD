@@ -22,6 +22,11 @@ pipeline {
          password(name: 'PASSWORD', defaultValue: 'VERYSECRET', description: 'Enter a password you already know')
      }
 
+     environment {
+         DELETE_FOLDER_AFTER_STAGES = 'false'
+         DB_ENGINE    = 'sqlite3'
+     }
+
     stages() {
 
 
@@ -70,7 +75,40 @@ pipeline {
                echo "${params.PASSWORD}"
 
 
+               script {
+                   if (DELETE_FOLDER_AFTER_STAGES == 'true') {
+                       echo 'Deleting BUILD_TAG folder'
+                       sh 'rm -rf ${BUILD_TAG}'
+                   } else {
+                       echo 'BUILD_TAG not folder deleted'
+                   }
+               }
+
           }
+
+
+         success {
+              echo "I am running because the job ran successfully"
+
+              script {
+
+                   def existsDB = fileExists 'db.sqlite3'
+
+                   if (existsDB) {
+
+                       echo "Database exists"
+
+                   } else {
+
+                       echo "No database exists"
+
+                   }
+              }
+         }
+
+         unstable {
+              echo "The build is unstable. Try fix it"
+         }
 
           failure {
              echo "Something happened"
